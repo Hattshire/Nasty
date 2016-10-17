@@ -87,3 +87,8 @@ ENV/
 
 # Rope project settings
 .ropeproject
+
+# Zeus Developer Editor project settings
+*.zwi
+*.zpi
+*.zerr
