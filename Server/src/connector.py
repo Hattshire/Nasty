@@ -22,3 +22,4 @@ s.bind( ( h_name, h_port ) )
 
 # Start listening
 s.listen( 0 )
+print "listened"

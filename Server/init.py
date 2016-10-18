@@ -6,6 +6,6 @@
 ##
 ############
 
-import src.connector as connector
+import connector as connector
 import src.catch_yt as yt
 import src.processing as processing

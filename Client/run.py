@@ -5,3 +5,5 @@
 ## Software under MIT licence
 ##
 ############
+
+import src.connect as connect
