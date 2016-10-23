@@ -37,7 +37,7 @@ s.sendall( "youtube" )
 
 # If server asks for url give it
 if s.recv( 8 ) == 'u':
-    s.sendall( "https://www.youtube.com/watch?v=O86jqLPnNIQ" )
+    s.sendall( raw_input( "URL: " ) )
 
 # Get available formats and give compatibility
 # Also, start downloading
@@ -61,20 +61,23 @@ if "audio" in data:
             print ">> No available formats <<"
             sys.exit(90)
     # Select best audio format
-    s.sendall( str( uformat ) )
-    
+    #s.sendall( str( uformat ) )
+    s.sendall( str( 140 ) )
     # Check if server asks for status and settings
     if s.recv( 8 ) == 's':
         # Send no settings
         s.sendall( '{ok}' )
     
+    ####### Delete this >>>>
+    test_data_container = ""
     # Start receiving
     while data != "EOS":
         # Get file
         data = s.recv( 4096 )
+        test_data_container += data
         # Add to buffer
         # play.enqueue( data )
-        print data
+        print "You got data!!\nThere are %d bytes available!\n" % ( len( test_data_container ) )
 else:
     print "Can't get audio from that video :/"
 #

@@ -56,7 +56,7 @@ class Server:
                 
                 # Wait for connections
                 read_sockets, write_sockets, error_sockets = select.select(
-                    [self.server],[],[]
+                    [ self.server ], [], []
                     )
                     
                 # Handle connection
@@ -115,12 +115,12 @@ class Client( threading.Thread ):
             # Get and send available formats
             data = self.yt.get_format_string()
             self.client.sendall( data )
-            formt = self.client.recv(32)
+            formt = self.client.recv( 32 )
             
             if formt != "":
                 # Ask for settings
-                self.client.sendall('s')
-                self.opt = self.client.recv(4096)
+                self.client.sendall( 's' )
+                self.opt = self.client.recv( 4096 )
                 if self.opt != '{ok}':
                     print "Do Something"
                 # Start to stream
